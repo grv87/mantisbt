@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ab2f6276fa9fa1610339ae5bf7a24f22",
+    "content-hash": "9b11488167fdb30ddf3253468065bc66",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -185,6 +185,125 @@
                 "parser"
             ],
             "time": "2019-03-17T18:48:37+00:00"
+        },
+        {
+            "name": "fidata/installers",
+            "version": "1.8.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/installers.zip"
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "^4.8.36"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "scripts": {
+                "test": [
+                    "phpunit"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "AGL",
+                "Aimeos",
+                "AnnotateCms",
+                "Attogram",
+                "Bitrix",
+                "CakePHP",
+                "Chef",
+                "Cockpit",
+                "CodeIgniter",
+                "Craft",
+                "Croogo",
+                "DokuWiki",
+                "Dolibarr",
+                "Drupal",
+                "Elgg",
+                "Eliasis",
+                "ExpressionEngine",
+                "FuelPHP",
+                "Grav",
+                "Hurad",
+                "ImageCMS",
+                "Joomla",
+                "Kanboard",
+                "Known",
+                "Kohana",
+                "Lan Management System",
+                "Laravel",
+                "Lavalite",
+                "Lithium",
+                "MODULEWork",
+                "MODX",
+                "MODX Evo",
+                "Magento",
+                "Mako",
+                "MantisBT",
+                "Mautic",
+                "Maya",
+                "MediaWiki",
+                "Moodle",
+                "OXID",
+                "PPI",
+                "Piwik",
+                "Plentymarkets",
+                "Porto",
+                "Puppet",
+                "RadPHP",
+                "ReIndex",
+                "Roundcube",
+                "SMF",
+                "SilverStripe",
+                "SyDES",
+                "TYPO3",
+                "Thelia",
+                "WHMCS",
+                "WolfCMS",
+                "WordPress",
+                "YAWIK",
+                "Zend",
+                "Zikula",
+                "concrete5",
+                "eZ Platform",
+                "iTop",
+                "installer",
+                "majima",
+                "osclass",
+                "phpBB",
+                "pxcms",
+                "shopware",
+                "symfony"
+            ]
         },
         {
             "name": "guzzlehttp/guzzle",
