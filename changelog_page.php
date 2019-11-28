@@ -120,9 +120,19 @@ function print_version_header( $p_version_id ) {
 		 '&' . filter_encode_field_and_value( FILTER_PROPERTY_FIXED_IN_VERSION, $t_version_name ) .
 		 '&' . FILTER_PROPERTY_HIDE_STATUS . '=' . META_FILTER_NONE . '">';
 	echo lang_get( 'view_bugs_link' );
-	echo '<a class="btn btn-xs btn-primary btn-white btn-round" href="changelog_page.php?version_id=' . $p_version_id . '">' . string_display_line( $t_version_name ) . '</a>';
-	echo '<a class="btn btn-xs btn-primary btn-white btn-round" href="changelog_page.php?project_id=' . $t_project_id . '">' . string_display_line( $t_project_name ) . '</a>';
 	echo '</a>';
+	if (plugin_is_installed("GanttChart"))
+	{
+		if (plugin_is_installed("IFramed"))
+		{
+			echo '<a class="btn btn-xs btn-primary btn-white btn-round" href="plugin.php?page=IFramed/main&title=Gantt%20Chart&url=' . urlencode(plugin_page( 'summary_gantt_chart.php', false, "GanttChart" ) . "&project_id=$t_project_id&version_id=$p_version_id&v_str=fixed_in_version&inherited=") . "\">" . plugin_lang_get( 'gantt_bug_page_link', 'GanttChart' ) . '</a>';
+		}
+		else {
+			echo '<a class="btn btn-xs btn-primary btn-white btn-round" href="' . plugin_page( 'summary_gantt_chart.php', false, "GanttChart" ) . "&project_id=$t_project_id&version_id=$p_version_id&v_str=fixed_in_version&inherited=\">Gantt Chart</a>";
+		}
+	}
+	echo '<a class="btn btn-xs btn-primary btn-white btn-round" href="changelog_page.php?project_id=' . $t_project_id . '">' . string_display_line( $t_project_name ) . '</a>';
+
 	echo '</div>';
 
 	echo '</div>';
