@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b11488167fdb30ddf3253468065bc66",
+    "content-hash": "db77ae7ac04cccc4d4296d6b6eaf8512",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -89,6 +89,7 @@
             ],
             "description": "Promoting the interoperability of container objects (DIC, SL, etc.)",
             "homepage": "https://github.com/container-interop/container-interop",
+            "abandoned": "psr/container",
             "time": "2017-02-14T19:40:03+00:00"
         },
         {
@@ -185,6 +186,202 @@
                 "parser"
             ],
             "time": "2019-03-17T18:48:37+00:00"
+        },
+        {
+            "name": "fidata/agile-mantis",
+            "version": "2.2.2",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/agileMantis.zip"
+            },
+            "archive": {
+                "exclude": [
+                    ".gitignore",
+                    "/res",
+                    "CHANGELOG.md",
+                    ".publishrc.json",
+                    "README.md"
+                ]
+            },
+            "type": "mantisbt-plugin",
+            "license": [
+                "LGPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "gadiv GmbH",
+                    "email": "agilemantis@gadiv.de"
+                }
+            ],
+            "description": "Enables the Scrum Framework to your Mantis-Installation"
+        },
+        {
+            "name": "fidata/api-extend",
+            "version": "1.2.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/ApiExtend.zip"
+            },
+            "archive": {
+                "exclude": [
+                    ".gitignore",
+                    "/res",
+                    "CHANGELOG.md",
+                    ".publishrc.json",
+                    "README.md"
+                ]
+            },
+            "type": "mantisbt-plugin",
+            "license": [
+                "GPL-3.0"
+            ],
+            "authors": [
+                {
+                    "name": "Scott Meesseman",
+                    "email": "spmeesseman@gmail.com"
+                }
+            ],
+            "description": "Extend the MantisBT REST API with issue count and version badges"
+        },
+        {
+            "name": "fidata/csv-import",
+            "version": "2.0.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/Csv_import-2.0.0.zip"
+            },
+            "archive": {
+                "exclude": [
+                    ".gitignore",
+                    "/doc",
+                    "README.md"
+                ]
+            },
+            "type": "mantisbt-plugin",
+            "authors": [
+                {
+                    "name": "ave"
+                },
+                {
+                    "name": "Stéphane Veyret"
+                },
+                {
+                    "name": "Udo Sommer"
+                },
+                {
+                    "name": "Cas Nuy"
+                },
+                {
+                    "name": "lionheart33806",
+                    "email": "lionheart33806@hotmail.com"
+                },
+                {
+                    "name": "Victor Boctor",
+                    "email": "victor@mantishub.com"
+                },
+                {
+                    "name": "Damien Regad",
+                    "email": "dregad@mantisbt.org"
+                }
+            ],
+            "description": "This MantisBT plugin allows you to import bugs with a CSV file"
+        },
+        {
+            "name": "fidata/easy-enter",
+            "version": "2.3.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/EasyEnter.zip"
+            },
+            "archive": {
+                "exclude": [
+                    "files/*.png",
+                    ".gitignore",
+                    "README.md",
+                    "Vagrantfile"
+                ]
+            },
+            "type": "mantisbt-plugin",
+            "license": [
+                "GPL-3.0-only"
+            ],
+            "authors": [
+                {
+                    "name": "Frithjof Gnas",
+                    "email": "fg@prae-sensation.de"
+                }
+            ],
+            "description": "MantisBT plugin to slim down the bug report page to make it more accessible for unexperienced users"
+        },
+        {
+            "name": "fidata/gantt-chart",
+            "version": "2.0.4",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/GanttChart-2.0.4.zip"
+            },
+            "archive": {
+                "exclude": [
+                    ".gitignore",
+                    "/patch",
+                    "/res",
+                    "CHANGELOG.md",
+                    ".publishrc.json",
+                    "README.md"
+                ]
+            },
+            "type": "mantisbt-plugin",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Alain Deurveilher",
+                    "email": "alain.deurveilher@gmail.com"
+                },
+                {
+                    "name": "Scott Meesseman",
+                    "email": "spmeesseman@gmail.com"
+                }
+            ],
+            "description": "Gantt Chart Plugin for Mantis"
+        },
+        {
+            "name": "fidata/gauge-support",
+            "version": "2.5.0-dev",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/GaugeSupport.zip"
+            },
+            "archive": {
+                "exclude": [
+                    ".gitignore",
+                    ".gitattributes",
+                    "/doc",
+                    "CHANGELOG.md",
+                    "LICENSE.md",
+                    "README.md"
+                ]
+            },
+            "type": "mantisbt-plugin",
+            "license": [
+                "GPL-3.0+"
+            ],
+            "authors": [
+                {
+                    "name": "Charly Kiendl (EvilRenegade)",
+                    "email": "renegade@renegadeprojects.com"
+                },
+                {
+                    "name": "Cas Nuy",
+                    "email": "cas@nuy.info"
+                },
+                {
+                    "name": "Damien Regad",
+                    "email": "dregad@mantisbt.org"
+                }
+            ],
+            "description": "Voting for tickets (for Mantis 2.x)"
         },
         {
             "name": "fidata/installers",
@@ -306,6 +503,173 @@
             ]
         },
         {
+            "name": "fidata/releases",
+            "version": "1.2.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/Releases-1.2.0.zip"
+            },
+            "archive": {
+                "exclude": [
+                    "/res",
+                    ".gitignore",
+                    ".publishrc.json",
+                    "CHANGELOG.md",
+                    "README.md"
+                ]
+            },
+            "type": "mantisbt-plugin",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Vincent Debout",
+                    "email": "deboutv@free.fr"
+                },
+                {
+                    "name": "Jiri Hron",
+                    "email": "jirka.hron@gmail.com"
+                },
+                {
+                    "name": "Scott Meesseman",
+                    "email": "spmeesseman@gmail.com"
+                }
+            ],
+            "description": "Basic version of 'GitHub Releases' for MantisBT, with REST API"
+        },
+        {
+            "name": "fidata/search-related-issue",
+            "version": "1.0.1",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/SearchRelatedIssue.zip"
+            },
+            "type": "mantisbt-plugin",
+            "license": [
+                "GPL-2.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "brlumen",
+                    "email": "igflocal@gmail.com"
+                }
+            ],
+            "description": "The plugin implements a live search for related issues during the creation of a new issue"
+        },
+        {
+            "name": "fidata/source",
+            "version": "2.3.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/Source.zip"
+            },
+            "archive": {
+                "exclude": [
+                    ".gitignore"
+                ]
+            },
+            "type": "mantisbt-plugin",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Reese",
+                    "email": "john@noswap.com"
+                },
+                {
+                    "name": "MantisBT Team",
+                    "email": "mantisbt-dev@lists.sourceforge.net"
+                }
+            ],
+            "description": "Flexible framework for fully integrating any sort of Version Control System (VCS) with Mantis"
+        },
+        {
+            "name": "fidata/source-github",
+            "version": "2.3.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/SourceGithub.zip"
+            },
+            "archive": {
+                "exclude": [
+                    ".gitignore"
+                ]
+            },
+            "type": "mantisbt-plugin",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Reese",
+                    "email": "john@noswap.com"
+                },
+                {
+                    "name": "MantisBT Team",
+                    "email": "mantisbt-dev@lists.sourceforge.net"
+                }
+            ],
+            "description": "Git repositories hosted on GitHub"
+        },
+        {
+            "name": "fidata/taskodrome",
+            "version": "0.1.0",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/Taskodrome-0.1.0.zip"
+            },
+            "archive": {
+                "exclude": [
+                    ".gitignore"
+                ]
+            },
+            "type": "mantisbt-plugin",
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Maxim Kuzmin",
+                    "email": "maxriderg@gmail.com"
+                }
+            ],
+            "description": "Interactive scrum board for Mantis bugtracker"
+        },
+        {
+            "name": "fidata/workload",
+            "version": "3.0.3",
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/Workload-3.0.3.zip"
+            },
+            "archive": {
+                "exclude": [
+                    "/docs",
+                    "/wiki",
+                    ".gitignore",
+                    "ISSUE_TEMPLATE.md",
+                    "README.md"
+                ]
+            },
+            "type": "mantisbt-plugin",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Regis Casteran",
+                    "email": "regis.casteran@struct-it.fr"
+                },
+                {
+                    "name": "EMBEDIA",
+                    "email": "maintenance@embedia.fr"
+                }
+            ],
+            "description": "Mantis BT Plugin based on selected custom fields to compute project workload"
+        },
+        {
             "name": "guzzlehttp/guzzle",
             "version": "6.3.3",
             "source": {
@@ -315,7 +679,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/org.packagist/vcs-dists/zip/guzzle/guzzle/407b0cb880ace85c9b63c5f9551db498cb2d50ba",
                 "reference": "407b0cb880ace85c9b63c5f9551db498cb2d50ba",
                 "shasum": ""
             },
@@ -346,7 +710,6 @@
                     "GuzzleHttp\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -431,7 +794,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/psr7/zipball/9f83dded91781a01c63574e387eaa769be769115",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/org.packagist/vcs-dists/zip/guzzle/psr7/9f83dded91781a01c63574e387eaa769be769115",
                 "reference": "9f83dded91781a01c63574e387eaa769be769115",
                 "shasum": ""
             },
@@ -460,7 +823,6 @@
                     "src/functions_include.php"
                 ]
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -544,7 +906,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/0c41a36d4508d470e376498c1c0c527aa36a2d59",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/org.packagist/vcs-dists/zip/PHPMailer/PHPMailer/0c41a36d4508d470e376498c1c0c527aa36a2d59",
                 "reference": "0c41a36d4508d470e376498c1c0c527aa36a2d59",
                 "shasum": ""
             },
@@ -576,7 +938,6 @@
                     "PHPMailer\\PHPMailer\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "LGPL-2.1"
             ],
@@ -799,7 +1160,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/slimphp/Slim/zipball/eaee12ef8d0750db62b8c548016d82fb33addb6b",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/org.packagist/vcs-dists/zip/slimphp/Slim/eaee12ef8d0750db62b8c548016d82fb33addb6b",
                 "reference": "eaee12ef8d0750db62b8c548016d82fb33addb6b",
                 "shasum": ""
             },
@@ -824,7 +1185,6 @@
                     "Slim\\": "Slim"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
@@ -2081,7 +2441,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "dapphp/securimage": 20
+        "dapphp/securimage": 20,
+        "fidata/gauge-support": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

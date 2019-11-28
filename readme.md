@@ -107,3 +107,11 @@ $g_default_redirect_delay in config_inc.php.
   to alter what should be visible at the top and bottom of each page.
 
 * All files were edited with TAB SPACES set to 4.
+
+## Creating Composer package
+
+```
+mkdir build
+composer archive --format=zip --dir=build --file=mantisbt-0.1.0
+curl -u%ARTIFACTORY_USERNAME%:%ARTIFACTORY_PASSWORD% "https://fidata.jfrog.io/fidata/composer-local/fidata/mantisbt-0.1.0.zip;composer.version=0.1.0" -T build/mantisbt-0.1.0.zip
+```
