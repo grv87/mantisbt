@@ -48,6 +48,12 @@
             "php": "5.5.0"
         }
     },
+    "extra": {
+        "installer-paths": {
+            "plugins/Csv_import": ["fidata/csv-import"],
+            "plugins/agileMantis": ["fidata/agile-mantis"]
+        }
+    },
     "archive": {
         "exclude": [
             "!/config",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ca2ab9ee06801f088778dc85ab38b767",
+    "content-hash": "f3dac876fa68bd40f190155b9a5eadd4",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -172,7 +172,7 @@
             },
             "type": "mantisbt-plugin",
             "license": [
-                "LGPL-3.0+"
+                "LGPL-3.0-or-later"
             ],
             "authors": [
                 {
