@@ -184,23 +184,24 @@
         },
         {
             "name": "fidata/api-extend",
-            "version": "1.2.1",
+            "version": "1.2.2",
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/ApiExtend.zip"
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/ApiExtend-1.2.2.zip"
             },
             "archive": {
                 "exclude": [
-                    ".gitignore",
+                    "/api/test",
                     "/res",
-                    "CHANGELOG.md",
+                    ".gitignore",
                     ".publishrc.json",
+                    "CHANGELOG.md",
                     "README.md"
                 ]
             },
             "type": "mantisbt-plugin",
             "license": [
-                "GPL-3.0"
+                "GPL-3.0-only"
             ],
             "authors": [
                 {
@@ -471,13 +472,14 @@
         },
         {
             "name": "fidata/releases",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/Releases-1.2.0.zip"
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/Releases-1.2.1.zip"
             },
             "archive": {
                 "exclude": [
+                    "/api/test",
                     "/res",
                     ".gitignore",
                     ".publishrc.json",
@@ -507,10 +509,15 @@
         },
         {
             "name": "fidata/search-related-issue",
-            "version": "1.0.1",
+            "version": "1.0.2",
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/SearchRelatedIssue.zip"
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/SearchRelatedIssue-1.0.2.zip"
+            },
+            "archive": {
+                "exclude": [
+                    ".gitignore"
+                ]
             },
             "type": "mantisbt-plugin",
             "license": [
@@ -606,10 +613,10 @@
         },
         {
             "name": "fidata/workload",
-            "version": "3.0.4",
+            "version": "3.0.5",
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/Workload-3.0.4.zip"
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/Workload-3.0.5.zip"
             },
             "archive": {
                 "exclude": [
