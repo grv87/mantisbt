@@ -58,7 +58,6 @@
             "!/vendor",
             "!/plugins",
             "!web.config",
-            "/admin",
             "/config/config_inc.php.sample",
             "doc",
             "/docbook",

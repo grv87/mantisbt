@@ -140,9 +140,6 @@ if( config_get_global( 'admin_checks' ) == ON ) {
 	# Check if the admin directory is accessible
 	$t_admin_dir = dirname( __FILE__ ) . '/admin';
 	$t_admin_dir_is_accessible = @file_exists( $t_admin_dir . '/.' );
-	if( $t_admin_dir_is_accessible ) {
-		$t_warnings[] = lang_get( 'warning_admin_directory_present' );
-	}
 
 	# Generate a warning if default user administrator/root is valid.
 	$t_admin_user_id = user_get_id_by_name( 'administrator' );
