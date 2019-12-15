@@ -20,6 +20,7 @@
  * @package MantisBT
  * @copyright Copyright 2000 - 2002  Kenzaburo Ito - kenito@300baud.org
  * @copyright Copyright 2002  MantisBT Team - mantisbt-dev@lists.sourceforge.net
+ * @copyright Copyright (C) 2011 - 2011  Silvia Alvarez - sils@powered-by-linux.com
  * @link http://www.mantisbt.org
  */
 
@@ -827,16 +828,72 @@ if( 3 == $t_install_state ) {
 	<?php
 		$g_db = ADONewConnection( $f_db_type );
 		$t_result = @$g_db->Connect( $f_hostname, $f_db_username, $f_db_password, $f_database_name );
+		//closing connection
+		$g_db->Close();
 		if( $t_result == true ) {
 			print_test_result( GOOD );
 		} else {
-			print_test_result(
-				BAD,
-				false,
-				'Database user doesn\'t have access to the database ( ' . string_attribute( db_error_msg() ) . ' )'
-			);
+			//this result is BAD because the Database user doesn\'t have access to the database
+			//for mysql,mysqli,pgsql on Debian installation try to create user and grant privileges
+			
+			//@TODO granted privileges for other engines
+			// due upstream installation do not support granting privileges
+			// for Debian packages and mysql,mysqli,pgsql engines this action is included
+			// on this page installation
+			//For more information read the manual
+			// "/usr/share/doc/mantis/adminguide/administration_guide.html"
+			
+			//new connection as admin user
+			$g_db = ADONewConnection ( $f_db_type );
+			$t_result = @$g_db->Connect ( $f_hostname, $f_admin_username, $f_admin_password, $f_database_name);	
+			
+			//filtering db_types
+			switch ($f_db_type) {
+				case 'mysql' :
+				case 'mysqli' :
+					//grant privileges
+					$t_query_grant ="GRANT ALL ON `".$f_database_name."`.* TO `".$f_db_username."`@`".$_SERVER['SERVER_ADDR']."` IDENTIFIED BY  '".$f_db_password."' "; 
+					$t_grant = @$g_db->Execute ( $t_query_grant );
+				
+					if ($t_grant == true) {
+						print_test_result ( GOOD );
+					}else{
+						print_test_result ( BAD, true, 'Database user doesn\'t have UPDATE access to the database ( ' . db_error_msg () . ' )' );			
+					}
+				break;
+			
+				case 'pgsql' :
+					//create user
+					$t_query_create ="CREATE USER '".$f_db_username."' WITH PASSWORD '".$f_db_password."' "; 
+					$t_create = @$g_db->Execute ( $t_query_create );
+					
+					if ($t_create == true) {
+						//grant privileges on database
+						$t_query_grant ="GRANT ALL PRIVILEGES ON DATABASE '".$f_database_name."' TO '".$f_db_username."' "; 
+						$t_grant = @$g_db->Execute ( $t_query_grant );
+									
+						if ($t_grant == true) {
+							print_test_result ( GOOD );
+						}else{
+							print_test_result ( BAD, true, 'Database user doesn\'t have access to the database ( ' . db_error_msg () . ' )' );			
+						}						
+						
+					}else{
+						print_test_result ( BAD, true, 'Database user doesn\'t have access to the database ( ' . db_error_msg () . ' )' );			
+					}	
+				break;
+				
+				case 'mssql' :
+				case 'db2' :
+				default :
+					$t_result_validation = '<br /> Running ' . $f_db_type ;
+					print_test_result ( BAD, true, 'Database user doesn\'t have access to the database ( ' . db_error_msg () . ' )' );
+				break;
+			}
+
+			$g_db->Close ();
+
 		}
-		$g_db->Close();
 	?>
 </tr>
 <?php
