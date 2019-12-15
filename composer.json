@@ -14,7 +14,6 @@
         "dapphp/securimage": "dev-mantis",
         "fidata/installers": "^1.8",
         "fidata/api-extend": "^1.2",
-        "fidata/agile-mantis": "^2.2",
         "fidata/gauge-support": "2.5.0-dev",
         "fidata/search-related-issue": "^1.0",
         "fidata/source": "^2.3",
@@ -50,8 +49,7 @@
     },
     "extra": {
         "installer-paths": {
-            "plugins/Csv_import": ["fidata/csv-import"],
-            "plugins/agileMantis": ["fidata/agile-mantis"]
+            "plugins/Csv_import": ["fidata/csv-import"]
         }
     },
     "archive": {

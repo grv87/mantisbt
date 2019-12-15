@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f3dac876fa68bd40f190155b9a5eadd4",
+    "content-hash": "804a94aac0c2eaa41ec0fd64da94d2ab",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -153,34 +153,6 @@
                 "parser"
             ],
             "time": "2019-03-17T18:48:37+00:00"
-        },
-        {
-            "name": "fidata/agile-mantis",
-            "version": "2.2.2",
-            "dist": {
-                "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/agileMantis.zip"
-            },
-            "archive": {
-                "exclude": [
-                    ".gitignore",
-                    "/res",
-                    "CHANGELOG.md",
-                    ".publishrc.json",
-                    "README.md"
-                ]
-            },
-            "type": "mantisbt-plugin",
-            "license": [
-                "LGPL-3.0-or-later"
-            ],
-            "authors": [
-                {
-                    "name": "gadiv GmbH",
-                    "email": "agilemantis@gadiv.de"
-                }
-            ],
-            "description": "Enables the Scrum Framework to your Mantis-Installation"
         },
         {
             "name": "fidata/api-extend",
