@@ -57,7 +57,7 @@ $g_from_name      = 'FIDATA MantisBT';
 # --- Attachments / File Uploads ---
 $g_allow_file_upload  = ON;
 $g_file_upload_method  = DISK; # or DATABASE
-$g_absolute_path_default_upload_folder = "{$_SERVER['MOUNT_DIRECTORY']}/"; # used with DISK, must contain trailing \ or /.
+$g_absolute_path_default_upload_folder = "{$_SERVER['EFS_MOUNT_DIR']}/"; # used with DISK, must contain trailing \ or /.
 # $g_max_file_size    = 5000000;  # in bytes
 # $g_preview_attachments_inline_max_size = 256 * 1024;
 # $g_allowed_files    = '';    # extensions comma separated, e.g. 'php,html,java,exe,pl'
