@@ -852,7 +852,7 @@ if( 3 == $t_install_state ) {
 				case 'mysql' :
 				case 'mysqli' :
 					//grant privileges
-					$t_query_grant ="GRANT ALL ON `".$f_database_name."`.* TO `".$f_db_username."`@`".$_SERVER['SERVER_ADDR']."` IDENTIFIED BY  '".$f_db_password."' "; 
+					$t_query_grant ="GRANT ALL ON `".$f_database_name."`.* TO `".$f_db_username."`@`".$_SERVER['RDS_USER_HOSTNAME']."` IDENTIFIED BY  '".$f_db_password."' ";
 					$t_grant = @$g_db->Execute ( $t_query_grant );
 				
 					if ($t_grant == true) {
