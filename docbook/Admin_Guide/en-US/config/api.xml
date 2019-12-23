@@ -50,7 +50,7 @@
 				<para>
 					Whether the REST API is enabled or not.  Note that this flag only
 					impacts API Token based auth.  Hence, even if the API is disabled, it can still be
-					used from the Web UI using cookie based authentication.  Default ON.
+					used from the Web UI using cookie based authentication.  Default is ON.
 				</para>
 			</listitem>
 		</varlistentry>

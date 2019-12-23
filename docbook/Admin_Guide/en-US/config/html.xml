@@ -109,7 +109,7 @@
 					A flag that indicates whether to use CDN (content delivery networks) for loading
 					javascript libraries and their associated CSS.  This improves performance for
 					loading MantisBT pages.  This can be disabled if it is desired that MantisBT
-					doesn't reach out outside corporate network.  Default OFF.
+					doesn't reach out outside corporate network.  Default is OFF.
 				</para>
 			</listitem>
 		</varlistentry>
