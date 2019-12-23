@@ -1,6 +1,6 @@
 <?php
 # SPDX-FileCopyrightText: ©  Basil Peace
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 define( 'FEEDBACK_REQUIRED', FEEDBACK /* 20 */ );
 define( 'PENDING_ESTIMATION', CONFIRMED /* 40 */ );

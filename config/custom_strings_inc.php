@@ -1,6 +1,6 @@
 <?php
 # SPDX-FileCopyrightText: ©  Basil Peace
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 switch( $g_active_language ) {
   case 'russian':

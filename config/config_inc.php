@@ -1,6 +1,6 @@
 <?php
 # SPDX-FileCopyrightText: ©  Basil Peace
-# SPDX-License-Identifier: Apache-2.0
+# SPDX-License-Identifier: GPL-2.0-or-later
 
 # In general the value OFF means the feature is disabled and ON means the
 # feature is enabled.  Any other cases will have an explanation.
