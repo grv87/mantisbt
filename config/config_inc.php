@@ -219,3 +219,8 @@ $g_resolution_multipliers = array(
 	BY_DESIGN           => 1,
   INVALID             => 5
 );
+
+/**
+ * show users with their real name or not
+ */
+$g_show_realname = ON;
