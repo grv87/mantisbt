@@ -228,3 +228,5 @@ $g_relationship_graph_enable = OFF;
  * in the future.
  */
 $g_enable_project_documentation = ON;
+
+$g_default_email_on_status = ON;
