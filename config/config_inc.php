@@ -238,3 +238,11 @@ $g_default_email_on_status = ON;
  * overridden in the database per user.
  */
 $g_email_notifications_verbose = ON;
+
+/**
+ * A flag that indicates whether to use CDN (content delivery networks) for loading
+ * javascript libraries and their associated CSS.  This improves performance for
+ * loading MantisBT pages.  This can be disabled if it is desired that MantisBT
+ * doesn't reach out outside corporate network.
+ */
+$g_cdn_enabled = ON;
