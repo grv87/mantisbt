@@ -230,3 +230,11 @@ $g_relationship_graph_enable = OFF;
 $g_enable_project_documentation = ON;
 
 $g_default_email_on_status = ON;
+
+/**
+ * When enabled, the email notifications will send the full issue with
+ * a hint about the change type at the top, rather than using dedicated
+ * notifications that are focused on what changed.  This change can be
+ * overridden in the database per user.
+ */
+$g_email_notifications_verbose = ON;
