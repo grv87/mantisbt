@@ -84,7 +84,7 @@ detailed doc can be found at http://www.mantisbt.org/docs/
 * global variables are prefixed by g_
 * parameters in functions are prefixed with p_ -- parameters shouldn't be modified within the function.
 * form variables are prefixed with f_
-* variables that have been cleaned for db insertiong are prefixed with c_
+* variables that have been cleaned for db insertion are prefixed with c_
 * temporary variables are prefixed with t_.
 * count variables have the word count in the variable name
 
