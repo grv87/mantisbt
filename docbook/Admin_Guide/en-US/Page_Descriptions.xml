@@ -87,26 +87,64 @@
             filters. Each table row is color coded according to the issue
             status. The colors can be customised through MantisBT configuration pages
             (see <xref linkend="admin.config" /> for details).
-
-            Severities
-            block
-            - prevents further work/progress from being made
+        </para>
+        Severities
+        <variablelist>
+            <listitem><para>
+            block - prevents further work/progress from being made
+            </para></listitem>
+            <listitem><para>
             crash - crashes the application or blocking,
+            </para></listitem>
+            <listitem><para>
             major - major issue,
+            </para></listitem>
+            <listitem><para>
             minor - minor issue,
+            </para></listitem>
+            <listitem><para>
             tweak - needs tweaking,
+            </para></listitem>
+            <listitem><para>
             text - error in the text,
+            </para></listitem>
+            <listitem><para>
             trivial - being nit picky,
+            </para></listitem>
+            <listitem><para>
             feature - requesting new feature
+            </para></listitem>
+        </variablelist>
             - Status
+        <variablelist>
+            </para></listitem>
+            <listitem><para>
             new - new issue,
+            </para></listitem>
+            <listitem><para>
             feedback - issue requires more information from reporter,
+            </para></listitem>
+            <listitem><para>
             acknowledged - issue has been looked at but not confirmed or assigned,
+            </para></listitem>
+            <listitem><para>
             confirmed - confirmed and reproducible (typically set by an
+            </para></listitem>
+            <listitem><para>
             Updater or other Developer),
+            </para></listitem>
+            <listitem><para>
             assigned - assigned to a Developer,
+            </para></listitem>
+            <listitem><para>
             resolved - issue should be fixed, waiting on confirmation of fix,
+            </para></listitem>
+            <listitem><para>
             closed - issue is closed,
+            </para></listitem>
+        </variablelist>
+
+        <para>
             Moving the mouse over the status text will
             show the resolution as a title. This is rendered by some browsers
             as a bubble and in others as a status line text.
