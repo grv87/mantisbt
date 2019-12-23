@@ -1,0 +1,28 @@
+/*
+ * SPDX-FileCopyrightText: ©  Basil Peace
+ * SPDX-License-Identifier: GPL-2.0-or-later
+ */
+
+.priority_none {
+    color: #ccff66 !important;
+}
+
+.priority_perfecting {
+    color: #cccc33 !important;
+}
+
+.priority_low {
+    color: #99cc00 !important;
+}
+
+.priority_medium {
+    color: #339900 !important;
+}
+
+.priority_high {
+    color: #336600 !important;
+}
+
+.priority_immediate {
+    color: #003300 !important;
+}

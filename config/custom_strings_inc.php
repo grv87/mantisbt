@@ -44,6 +44,11 @@ switch( $g_active_language ) {
     $s_email_notification_title_for_status_bug_verification_required = 'Следующая задача решена и ТРЕБУЕТ вашей ВЕРИФИКАЦИИ:';
     $s_email_notification_title_for_status_bug_closed = 'Следующая задача ЗАКРЫТА:';
 
+    $s_priority_enum_string = '10:нет,15:совершенствование,20:низкий,30:средний,40:высокий,60:немедленный';
+    $s_severity_enum_string = '5:вопрос,8:пользовательская история,10:новая возможность,12:расширение,20:баг-пустяк,30:баг-текст,50:баг-малый,55:задача,60:баг-большой,70:баг-падение,80:баг-блокирующий,82:задача-блокирующая,90:баг-комплайенс,92:баг-безопасность,94:баг-правовой';
+    $s_reproducibility_enum_string = '10:всегда,30:иногда,50:произвольно,70:не проверялась,90:не воспроизводится,100:неприменимо';
+    $s_resolution_enum_string = '10:открыта,20:исправлено,25:выполнена,30:переоткрыта,40:не удаётся воспроизвести,60:повтор,90:как задумано,95:ошибочная';
+
     break;
 
   default: # english
@@ -87,6 +92,11 @@ switch( $g_active_language ) {
     $s_email_notification_title_for_status_bug_in_progress = 'The following issue is IN PROGRESS:';
     $s_email_notification_title_for_status_bug_verification_required = 'The following issue has been resolved and REQUIRES your VERIFICATION:';
     $s_email_notification_title_for_status_bug_closed = 'The following issue has been CLOSED:';
+
+    $s_priority_enum_string = '10:none,15:perfecting,20:low,30:medium,40:high,60:immediate';
+    $s_severity_enum_string = '5:question,8:user story,10:new feature,12:enhancement,20:bug-trivial,30:bug-text,50:bug-minor,55:task,60:bug-major,70:bug-crash,80:bug-block,82:task-block,90:bug-compliance,92:bug-security,94:bug-legal';
+    $s_reproducibility_enum_string = '10:always,50:random,70:have not tried,90:unable to reproduce,100:N/A';
+    $s_resolution_enum_string = '10:open,20:fixed,25:done,30:reopened,40:unable to reproduce,60:duplicate,90:by design,95:invalid';
 
     break;
 }

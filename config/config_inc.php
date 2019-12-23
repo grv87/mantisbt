@@ -67,6 +67,10 @@ $g_absolute_path_default_upload_folder = "{$_SERVER['EFS_MOUNT_DIR']}/"; # used 
 $g_window_title  = 'FIDATA MantisBT';
 # $g_logo_image    = 'images/mantis_logo.png';
 # $g_favicon_image = 'images/favicon.ico';
+/**
+ * CSS file
+ */
+$g_css_include_file = 'custom.css';
 
 # --- Real names ---
 $g_show_realname = ON;
@@ -153,4 +157,65 @@ $g_status_colors = array(
 	'in progress'            => '#97c4f0', # sky blue
 	'verification required'  => '#2a5703', # chameleon (dark green)
 	'closed'                 => '#2e3436'  # aluminum (dark grey)
+);
+
+$g_priority_enum_string = '10:none,15:perfecting,20:low,30:medium,40:high,60:immediate';
+/**
+ * Icon associative arrays
+ * Status to icon mapping
+ */
+$g_status_icon_arr = array(
+	NONE       => 'fa-lg priority_none',
+  PERFECTING => 'thumbs-o-up fa-lg priority_perfecting',
+	LOW        => 'fa-chevron-down fa-lg priority_low',
+	MEDIUM     => 'fa-minus fa-lg priority_medium',
+	HIGH       => 'fa-chevron-up fa-lg priority_high',
+	IMMEDIATE  => 'fa-clock-o fa-lg priority_immediate'
+);
+
+/**
+ * Default bug priority when reporting a new bug
+ */
+$g_default_bug_priority = NONE;
+
+$g_severity_enum_string = '5:question,8:user story,10:new feature,12:enhancement,20:bug trivial,30:bug text,50:bug minor,55:task,60:bug major,70:bug crash,80:bug block,82:task block,90:bug compliance,92:bug security,94:bug legal';
+/**
+ * Define the multipliers which are used to determine the effectiveness
+ * of reporters based on the severity of bugs. Higher multipliers will
+ * result in an increase in reporter effectiveness.
+ */
+$g_severity_multipliers = array(
+	QUESTION       => 1,
+	USER_STORY     => 3,
+	NEW_FEATURE    => 2,
+  ENHANCEMENT    => 2,
+	BUG_TRIVIAL    => 2,
+	BUG_TEXT       => 2,
+	BUG_MINOR      => 4,
+  TASK           => 5,
+	BUG_MAJOR      => 6,
+	BUG_CRASH      => 8,
+	BUG_BLOCK      => 10,
+	TASK_BLOCK     => 10,
+	BUG_COMPLIANCE => 10,
+	BUG_SECURITY   => 10,
+	BUG_LEGAL      => 10
+);
+
+$g_reproducibility_enum_string = '10:always,50:random,70:have not tried,90:unable to reproduce,100:N/A';
+
+$g_resolution_enum_string = '10:open,20:fixed,25:done,30:reopened,40:unable to reproduce,60:duplicate,90:by design,95:invalid';
+
+/**
+ * Define the resolutions which are used to determine the effectiveness
+ * of reporters based on the resolution of bugs. Higher multipliers will
+ * result in a decrease in reporter effectiveness. The only resolutions
+ * that need to be defined here are those which match or exceed
+ * $g_bug_resolution_not_fixed_threshold.
+ */
+$g_resolution_multipliers = array(
+	UNABLE_TO_REPRODUCE => 2,
+	DUPLICATE           => 3,
+	BY_DESIGN           => 1,
+  INVALID             => 5
 );
