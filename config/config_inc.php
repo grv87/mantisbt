@@ -221,3 +221,10 @@ $g_show_realname = ON;
  * Show issue relationships using graphs.
  */
 $g_relationship_graph_enable = OFF;
+
+/**
+ * Specifies whether to enable support for project documents or not.
+ * This feature is deprecated and is expected to be moved to a plugin
+ * in the future.
+ */
+$g_enable_project_documentation = ON;
