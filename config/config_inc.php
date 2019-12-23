@@ -215,3 +215,9 @@ $g_resolution_multipliers = array(
  * show users with their real name or not
  */
 $g_show_realname = ON;
+
+/**
+ * Enable relationship graphs support.
+ * Show issue relationships using graphs.
+ */
+$g_relationship_graph_enable = OFF;
