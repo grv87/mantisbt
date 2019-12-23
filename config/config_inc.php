@@ -79,16 +79,8 @@ $g_show_user_realname_threshold = REPORTER;  # Set to access level (e.g. VIEWER,
 # --- Others ---
 # $g_default_home_page = 'my_view_page.php';  # Set to name of page to go to after login
 
-/**
- *
- * @global string $g_project_status_enum_string
- */
 $g_project_status_enum_string = '1:considered,2:postponed,5:planned,10:in development,50:stable,70:obsolete';
 
-/**
- *
- * @global string $g_status_enum_string
- */
 $g_status_enum_string = '10:new,20:feedback required,40:pending estimation,42:pending prioritization,44:pending planning,46:pending assignment,49:help wanted,50:assigned,55:in progress,80:verification required,90:closed';
 
 /**
@@ -113,7 +105,6 @@ $g_status_enum_workflow = array(
 
 /**
  * Status to assign to the bug when reopened.
- * @global integer $g_bug_reopen_status
  */
 $g_bug_reopen_status = ASSIGNED;
 
