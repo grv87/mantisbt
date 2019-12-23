@@ -3399,11 +3399,6 @@ $g_reproducibility_enum_string = '10:always,30:sometimes,50:random,70:have not t
 $g_status_enum_string = '10:new,20:feedback,30:acknowledged,40:confirmed,50:assigned,80:resolved,90:closed';
 
 /**
- * @@@ for documentation, the values in this list are also used to define
- * variables in the language files (e.g., $s_new_bug_title referenced in
- * bug_change_status_page.php ). Embedded spaces are converted to underscores
- * (e.g., "working on" references $s_working_on_bug_title). They are also
- * expected to be English names for the states
  * @global string $g_resolution_enum_string
  */
 $g_resolution_enum_string = '10:open,20:fixed,30:reopened,40:unable to duplicate,50:not fixable,60:duplicate,70:not a bug,80:suspended,90:wont fix';
