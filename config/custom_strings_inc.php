@@ -49,6 +49,10 @@ switch( $g_active_language ) {
     $s_reproducibility_enum_string = '10:всегда,30:иногда,50:произвольно,70:не проверялась,90:не воспроизводится,100:неприменимо';
     $s_resolution_enum_string = '10:открыта,20:исправлено,25:выполнена,30:переоткрыта,40:не удаётся воспроизвести,60:повтор,90:как задумано,95:ошибочная';
 
+    $s_estimated_workload = 'Оценка затрат времени';
+    $s_work_progression = 'Прогресс работы';
+    $s_done_workload = 'Фактические затраты времени';
+
     break;
 
   default: # english
@@ -97,6 +101,10 @@ switch( $g_active_language ) {
     $s_severity_enum_string = '5:question,8:user story,10:new feature,12:enhancement,20:bug-trivial,30:bug-text,50:bug-minor,55:task,60:bug-major,70:bug-crash,80:bug-block,82:task-block,90:bug-compliance,92:bug-security,94:bug-legal';
     $s_reproducibility_enum_string = '10:always,50:random,70:have not tried,90:unable to reproduce,100:N/A';
     $s_resolution_enum_string = '10:open,20:fixed,25:done,30:reopened,40:unable to reproduce,60:duplicate,90:by design,95:invalid';
+
+    $s_estimated_workload = 'Estimated Workload';
+    $s_work_progression = 'Work Progression';
+    $s_done_workload = 'Done Workload';
 
     break;
 }
