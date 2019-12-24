@@ -246,3 +246,12 @@ $g_email_notifications_verbose = ON;
  * doesn't reach out outside corporate network.
  */
 $g_cdn_enabled = ON;
+
+#################
+# Time tracking #
+#################
+
+/**
+ * Turn on Time Tracking accounting
+ */
+$g_time_tracking_enabled = ON;
