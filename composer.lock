@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "54b779a2a05ddfafa53633537e01043d",
+    "content-hash": "f9a76686a3353912fa9c5f81a75f5597",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -58,6 +58,129 @@
                 "php"
             ],
             "time": "2019-11-24T10:59:54+00:00"
+        },
+        {
+            "name": "composer/installers",
+            "version": "v1.8.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/composer/installers.git",
+                "reference": "7d610d50aae61ae7ed6675e58efeabdf279bb5e3"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://fidata.jfrog.io/fidata/api/composer/org.packagist/vcs-dists/zip/composer/installers/7d610d50aae61ae7ed6675e58efeabdf279bb5e3",
+                "reference": "7d610d50aae61ae7ed6675e58efeabdf279bb5e3",
+                "shasum": ""
+            },
+            "require": {
+                "composer-plugin-api": "^1.0"
+            },
+            "replace": {
+                "roundcube/plugin-installer": "*",
+                "shama/baton": "*"
+            },
+            "require-dev": {
+                "composer/composer": "1.0.*@dev",
+                "phpunit/phpunit": "^4.8.36"
+            },
+            "type": "composer-plugin",
+            "extra": {
+                "class": "Composer\\Installers\\Plugin",
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Composer\\Installers\\": "src/Composer/Installers"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kyle Robinson Young",
+                    "email": "kyle@dontkry.com",
+                    "homepage": "https://github.com/shama"
+                }
+            ],
+            "description": "A multi-framework Composer library installer",
+            "homepage": "https://composer.github.io/installers/",
+            "keywords": [
+                "Craft",
+                "Dolibarr",
+                "Eliasis",
+                "Hurad",
+                "ImageCMS",
+                "Kanboard",
+                "Lan Management System",
+                "MODX Evo",
+                "MantisBT",
+                "Mautic",
+                "Maya",
+                "OXID",
+                "Plentymarkets",
+                "Porto",
+                "RadPHP",
+                "SMF",
+                "Thelia",
+                "Whmcs",
+                "WolfCMS",
+                "agl",
+                "aimeos",
+                "annotatecms",
+                "attogram",
+                "bitrix",
+                "cakephp",
+                "chef",
+                "cockpit",
+                "codeigniter",
+                "concrete5",
+                "croogo",
+                "dokuwiki",
+                "drupal",
+                "eZ Platform",
+                "elgg",
+                "expressionengine",
+                "fuelphp",
+                "grav",
+                "installer",
+                "itop",
+                "joomla",
+                "known",
+                "kohana",
+                "laravel",
+                "lavalite",
+                "lithium",
+                "magento",
+                "majima",
+                "mako",
+                "mediawiki",
+                "modulework",
+                "modx",
+                "moodle",
+                "osclass",
+                "phpbb",
+                "piwik",
+                "ppi",
+                "puppet",
+                "pxcms",
+                "reindex",
+                "roundcube",
+                "shopware",
+                "silverstripe",
+                "sydes",
+                "sylius",
+                "symfony",
+                "typo3",
+                "wordpress",
+                "yawik",
+                "zend",
+                "zikula"
+            ],
+            "time": "2020-02-07T10:39:20+00:00"
         },
         {
             "name": "dapphp/securimage",
@@ -322,125 +445,6 @@
                 }
             ],
             "description": "Voting for tickets (for Mantis 2.x)"
-        },
-        {
-            "name": "fidata/installers",
-            "version": "1.8.0",
-            "dist": {
-                "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/installers.zip"
-            },
-            "require": {
-                "composer-plugin-api": "^1.0"
-            },
-            "replace": {
-                "roundcube/plugin-installer": "*",
-                "shama/baton": "*"
-            },
-            "require-dev": {
-                "composer/composer": "1.0.*@dev",
-                "phpunit/phpunit": "^4.8.36"
-            },
-            "type": "composer-plugin",
-            "extra": {
-                "class": "Composer\\Installers\\Plugin",
-                "branch-alias": {
-                    "dev-master": "1.0-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Composer\\Installers\\": "src/Composer/Installers"
-                }
-            },
-            "scripts": {
-                "test": [
-                    "phpunit"
-                ]
-            },
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Kyle Robinson Young",
-                    "email": "kyle@dontkry.com",
-                    "homepage": "https://github.com/shama"
-                }
-            ],
-            "description": "A multi-framework Composer library installer",
-            "homepage": "https://composer.github.io/installers/",
-            "keywords": [
-                "AGL",
-                "Aimeos",
-                "AnnotateCms",
-                "Attogram",
-                "Bitrix",
-                "CakePHP",
-                "Chef",
-                "Cockpit",
-                "CodeIgniter",
-                "Craft",
-                "Croogo",
-                "DokuWiki",
-                "Dolibarr",
-                "Drupal",
-                "Elgg",
-                "Eliasis",
-                "ExpressionEngine",
-                "FuelPHP",
-                "Grav",
-                "Hurad",
-                "ImageCMS",
-                "Joomla",
-                "Kanboard",
-                "Known",
-                "Kohana",
-                "Lan Management System",
-                "Laravel",
-                "Lavalite",
-                "Lithium",
-                "MODULEWork",
-                "MODX",
-                "MODX Evo",
-                "Magento",
-                "Mako",
-                "MantisBT",
-                "Mautic",
-                "Maya",
-                "MediaWiki",
-                "Moodle",
-                "OXID",
-                "PPI",
-                "Piwik",
-                "Plentymarkets",
-                "Porto",
-                "Puppet",
-                "RadPHP",
-                "ReIndex",
-                "Roundcube",
-                "SMF",
-                "SilverStripe",
-                "SyDES",
-                "TYPO3",
-                "Thelia",
-                "WHMCS",
-                "WolfCMS",
-                "WordPress",
-                "YAWIK",
-                "Zend",
-                "Zikula",
-                "concrete5",
-                "eZ Platform",
-                "iTop",
-                "installer",
-                "majima",
-                "osclass",
-                "phpBB",
-                "pxcms",
-                "shopware",
-                "symfony"
-            ]
         },
         {
             "name": "fidata/releases",
