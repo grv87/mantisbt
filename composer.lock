@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "adodb/adodb-php",
-            "version": "v5.20.15",
+            "version": "v5.20.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ADOdb/ADOdb.git",
-                "reference": "7bb34029f4d6995b6bf1dd3cb58de69a16cfce87"
+                "reference": "b3cbd53be811f8307493f387ca5831143c1925c1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/org.packagist/vcs-dists/zip/ADOdb/ADOdb/7bb34029f4d6995b6bf1dd3cb58de69a16cfce87",
-                "reference": "7bb34029f4d6995b6bf1dd3cb58de69a16cfce87",
+                "url": "https://api.github.com/repos/ADOdb/ADOdb/zipball/b3cbd53be811f8307493f387ca5831143c1925c1",
+                "reference": "b3cbd53be811f8307493f387ca5831143c1925c1",
                 "shasum": ""
             },
             "require": {
@@ -629,7 +629,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/org.packagist/vcs-dists/zip/guzzle/guzzle/43ece0e75098b7ecd8d13918293029e555a50f82",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/43ece0e75098b7ecd8d13918293029e555a50f82",
                 "reference": "43ece0e75098b7ecd8d13918293029e555a50f82",
                 "shasum": ""
             },
@@ -746,7 +746,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/org.packagist/vcs-dists/zip/guzzle/psr7/239400de7a173fe9901b9ac7c06497751f00727a",
+                "url": "https://api.github.com/repos/guzzle/psr7/zipball/239400de7a173fe9901b9ac7c06497751f00727a",
                 "reference": "239400de7a173fe9901b9ac7c06497751f00727a",
                 "shasum": ""
             },
@@ -862,7 +862,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/org.packagist/vcs-dists/zip/PHPMailer/PHPMailer/c5e61d0729507049cec9673aa1a679f9adefd683",
+                "url": "https://api.github.com/repos/PHPMailer/PHPMailer/zipball/c5e61d0729507049cec9673aa1a679f9adefd683",
                 "reference": "c5e61d0729507049cec9673aa1a679f9adefd683",
                 "shasum": ""
             },
@@ -1112,7 +1112,7 @@
             },
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/org.packagist/vcs-dists/zip/slimphp/Slim/1c9318a84ffb890900901136d620b4f03a59da38",
+                "url": "https://api.github.com/repos/slimphp/Slim/zipball/1c9318a84ffb890900901136d620b4f03a59da38",
                 "reference": "1c9318a84ffb890900901136d620b4f03a59da38",
                 "shasum": ""
             },

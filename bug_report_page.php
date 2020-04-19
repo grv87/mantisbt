@@ -260,11 +260,12 @@ if( $t_show_attachments ) {
 	event_signal( 'EVENT_REPORT_BUG_FORM_TOP', array( $t_project_id ) );
 
 	if( $t_show_category ) {
+		$t_allow_no_category = config_get( 'allow_no_category' );
 ?>
 	<tr>
 		<th class="category" width="30%">
 			<?php
-			echo config_get( 'allow_no_category' ) ? '' : '<span class="required">*</span> ';
+			echo $t_allow_no_category ? '' : '<span class="required">*</span> ';
 			echo '<label for="category_id">';
 			print_documentation_link( 'category' );
 			echo '</label>';
@@ -274,14 +275,18 @@ if( $t_show_attachments ) {
 			<?php if( $t_changed_project ) {
 				echo '[' . project_get_field( $t_bug->project_id, 'name' ) . '] ';
 			} ?>
-			<select <?php echo helper_get_tab_index() ?> id="category_id" name="category_id" class="autofocus input-sm">
+			<select id="category_id" name="category_id" class="autofocus input-sm" <?php
+				echo helper_get_tab_index();
+				echo $t_allow_no_category ? '' : ' required';
+			?>>
 				<?php
 					print_category_option_list( $f_category_id );
 				?>
 			</select>
 		</td>
 	</tr>
-<?php }
+<?php
+	}
 
 	if( $t_show_reproducibility ) {
 ?>
@@ -376,8 +381,8 @@ if( $t_show_attachments ) {
 					<?php print_profile_option_list( auth_get_current_user_id(), $f_profile_id ) ?>
 				</select>
 			<?php } ?>
-			<?php collapse_open( 'profile' ); collapse_icon( 'profile' ); ?>
-			<?php echo lang_get( 'or_fill_in' ); ?>
+			<?php collapse_open( 'profile' ); ?>
+			<?php echo lang_get( 'or_fill_in' ); collapse_icon( 'profile' ); ?>
 			<table class="table-bordered table-condensed">
 				<tr>
 					<th class="category" width="30%">
@@ -433,8 +438,8 @@ if( $t_show_attachments ) {
 					</td>
 				</tr>
 			</table>
-			<?php collapse_closed( 'profile' ); collapse_icon( 'profile' ); ?>
-			<?php echo lang_get( 'or_fill_in' ); ?>
+			<?php collapse_closed( 'profile' ); ?>
+			<?php echo lang_get( 'or_fill_in' ); collapse_icon( 'profile' ); ?>
 			<?php collapse_end( 'profile' ); ?>
 		</td>
 	</tr>
@@ -605,7 +610,22 @@ if( $t_show_attachments ) {
 			<label for="attach_tag"><?php echo lang_get( 'tag_attach_long' ) ?></label>
 		</th>
 		<td>
-			<?php print_tag_input( '' ); ?>
+			<?php
+				if( $f_master_bug_id > 0 ) {
+					# pre-fill tag string when cloning from master bug
+					$t_tags = [];
+					foreach( tag_bug_get_attached( $f_master_bug_id ) as $t_tag ) {
+						array_push( $t_tags, $t_tag["name"] );
+					}
+					$t_tag_string = implode(
+						config_get( 'tag_separator' ), $t_tags
+					);
+					print_tag_input( 0, $t_tag_string );
+				} else {
+					# otherwise show just the default empty string
+					print_tag_input();
+				}
+			?>
 		</td>
 	</tr>
 <?php
@@ -701,7 +721,7 @@ if( $t_show_attachments ) {
 			<?php echo lang_get( 'relationship_with_parent' ) ?>
 		</th>
 		<td>
-			<?php relationship_list_box( config_get( 'default_bug_relationship_clone' ), "rel_type", false, true ) ?>
+			<?php print_relationship_list_box( config_get( 'default_bug_relationship_clone' ), "rel_type", false, true ) ?>
 			<?php echo '<strong>' . lang_get( 'bug' ) . ' ' . bug_format_id( $f_master_bug_id ) . '</strong>' ?>
 		</td>
 	</tr>

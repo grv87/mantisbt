@@ -190,11 +190,8 @@ function print_filter_reporter_id( array $p_filter = null ) {
 	?>
 		<select class="input-xs" <?php echo filter_select_modifier( $p_filter ) ?> name="<?php echo FILTER_PROPERTY_REPORTER_ID;?>[]">
 		<?php
-	# if current user is a reporter, and limited reports set to ON, only display that name
-	# @@@ thraxisp - access_has_project_level checks greater than or equal to,
-	#   this assumed that there aren't any holes above REPORTER where the limit would apply
-	#
-	if( ( ON === config_get( 'limit_reporters' ) ) && ( !access_has_project_level( access_threshold_min_level( config_get( 'report_bug_threshold' ) ) + 1 ) ) ) {
+	# if current user is a reporter, and limited_reporters is set to ON, only display that name
+	if( access_has_limited_view() ) {
 		$t_id = auth_get_current_user_id();
 		$t_username = user_get_name( $t_id );
 		$t_display_name = string_attribute( $t_username );
@@ -1592,7 +1589,7 @@ function print_filter_relationship_type( array $p_filter = null ) {
 		$p_filter = $g_filter;
 	}
 	$c_reltype_value = $p_filter[FILTER_PROPERTY_RELATIONSHIP_TYPE];
-	relationship_list_box( $c_reltype_value, 'relationship_type', true, true, "input-xs" );
+	print_relationship_list_box( $c_reltype_value, 'relationship_type', true, true, "input-xs" );
 	echo '<input class="input-xs" type="text" name="', FILTER_PROPERTY_RELATIONSHIP_BUG, '" size="5" maxlength="10" value="', $p_filter[FILTER_PROPERTY_RELATIONSHIP_BUG], '" />';
 }
 
@@ -1958,7 +1955,7 @@ function print_filter_custom_field( $p_field_id, array $p_filter = null ) {
 			check_selected( $p_filter['custom_fields'][$p_field_id], META_FILTER_ANY, false );
 			echo '>[' . lang_get( 'any' ) . ']</option>';
 			# don't show META_FILTER_NONE for enumerated types as it's not possible for them to be blank
-			if( !in_array( $t_cfdef['type'], array( CUSTOM_FIELD_TYPE_ENUM, CUSTOM_FIELD_TYPE_LIST, CUSTOM_FIELD_TYPE_MULTILIST ) ) ) {
+			if( !in_array( $t_cfdef['type'], array( CUSTOM_FIELD_TYPE_ENUM, CUSTOM_FIELD_TYPE_LIST ) ) ) {
 				echo '<option value="' . META_FILTER_NONE . '"';
 				check_selected( $p_filter['custom_fields'][$p_field_id], META_FILTER_NONE, false );
 				echo '>[' . lang_get( 'none' ) . ']</option>';
@@ -2112,20 +2109,14 @@ function print_filter_custom_field_date( $p_field_id, array $p_filter = null ) {
 	$t_included_projects = filter_get_included_projects( $p_filter );
 	$t_values = custom_field_distinct_values( $t_cfdef, $t_included_projects );
 
-	# Resort the values so there ordered numerically, they are sorted as strings otherwise which
-	# may be wrong for dates before early 2001.
-	if( is_array( $t_values ) ) {
-		array_multisort( $t_values, SORT_NUMERIC, SORT_ASC );
-	}
-
 	$t_sel_start_year = null;
 	$t_sel_end_year = null;
-	if( isset( $t_values[0] ) ) {
-		$t_sel_start_year = date( 'Y', $t_values[0] );
-	}
-	$t_count = count( $t_values );
-	if( isset( $t_values[$t_count - 1] ) ) {
-		$t_sel_end_year = date( 'Y', $t_values[$t_count - 1] );
+	if( is_array( $t_values ) && !empty( $t_values ) ) {
+		# Sort the values so they are ordered numerically
+		# (otherwise they are treated as strings, which may be wrong for dates before early 2001)
+		array_multisort( $t_values, SORT_NUMERIC, SORT_ASC );
+		$t_sel_start_year = date( 'Y', reset( $t_values ) );
+		$t_sel_end_year = date( 'Y', end( $t_values ) );
 	}
 
 	$t_start = date( 'U' );

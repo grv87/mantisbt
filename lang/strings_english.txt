@@ -584,6 +584,7 @@ $s_fixed_in_version = 'Fixed in Version';
 $s_target_version = 'Target Version';
 $s_votes = 'Votes';
 $s_summary = 'Summary';
+$s_synthesis = 'Synthesis';
 $s_description = 'Description';
 $s_steps_to_reproduce = 'Steps To Reproduce';
 $s_update_information_button = 'Update Information';
@@ -822,6 +823,7 @@ $s_resolved_status = 'Status where an issue is considered resolved';
 $s_readonly_status = 'Status where an issue becomes read only';
 $s_reopen_status = 'Status to which a reopened issue is set';
 $s_reopen_resolution = 'Resolution to which a reopened issue is set';
+$s_limit_view_unless_threshold_option = 'View other users\' issues (if not set, access will be limited to issues reported, handled, or monitored by the user)';
 
 # manage_config_revert_page
 $s_config_delete_sure = 'Are you sure you want to delete the settings for:';
@@ -842,6 +844,7 @@ $s_set_configuration_option_action_create = 'Create Configuration Option';
 $s_set_configuration_option_action_edit = 'Edit Configuration Option';
 $s_set_configuration_option_action_clone = 'Clone Configuration Option';
 $s_set_configuration_option_action_view = 'View Configuration Option';
+$s_show_all_complex = 'Show Value for all "%1$s" Options';
 
 # manage_plugin_page.php
 $s_plugin = 'Plugin';
@@ -1282,6 +1285,8 @@ $s_move_bug_button = 'Move';
 $s_attached_files = 'Attached Files';
 $s_publish = 'Publish';
 $s_add_user_to_monitor = 'Add';
+$s_browser_does_not_support_audio = 'Your browser does not support audio tag.';
+$s_browser_does_not_support_video = 'Your browser does not support video tag.';
 
 # view_bug_page.php
 $s_bug_view_title = 'View Issue Details';
@@ -1409,13 +1414,13 @@ $s_copy_attachments_from_parent = 'Copy attachments';
 $s_with = 'with';
 
 # Relationship Graphs
-$s_viewing_bug_relationship_graph_title = 'Relationship Graph';
-$s_viewing_bug_dependency_graph_title = 'Dependency Graph';
-$s_relation_graph = 'Relation Graph';
+$s_relation_graph = 'Relationship Graph';
 $s_dependency_graph = 'Dependency Graph';
 $s_vertical = 'Vertical';
 $s_horizontal = 'Horizontal';
 $s_view_issue = 'View Issue';
+$s_show_summary = 'Show Summary';
+$s_hide_summary = 'Hide Summary';
 
 # Permissions report
 $s_perm_rpt_capability = 'Capability';
@@ -1479,6 +1484,14 @@ $s_email_on_deleted = 'E-mail on Deleted';
 $s_email_on_sponsorship_changed = 'E-mail on Sponsorship changed';
 $s_email_on_relationship_changed = 'E-mail on Relationship changed';
 $s_email_on_updated = 'E-mail on Updated';
+$s_email_on_monitor = 'E-mail when user starts monitoring';
+$s_view_tags = 'View tags attached to a bug';
+$s_attach_tags = 'Attach tags to a bug';
+$s_detach_tags = 'Detach tags from a bug';
+$s_detach_own_tags = 'Detach tags attached by the same user';
+$s_create_new_tags = 'Create new tags';
+$s_edit_tags = 'Edit tag names and descriptions';
+$s_edit_own_tags = 'Edit tags created by the same user';
 
 # Dynamic filters (load filter controls via AJAX upon request)
 $s_loading = 'Loading...';
@@ -1574,6 +1587,8 @@ $s_copy_columns_to = 'Copy Columns To';
 $s_due_date = 'Due Date';
 $s_overdue = 'Overdue';
 $s_overdue_since = 'Overdue since %1$s';
+$s_overdue_one_day = 'Overdue in less than a day';
+$s_overdue_days = 'Overdue in %1$d days';
 
 #account_view_page.php
 $s_view_account_title = 'User Information';

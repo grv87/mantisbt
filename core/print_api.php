@@ -364,8 +364,13 @@ function print_tag_attach_form( $p_bug_id, $p_string = '' ) {
 
 /**
  * Print the separator comment, input box, and existing tag dropdown menu.
- * @param integer $p_bug_id A bug identifier.
+ *
+ * @param integer $p_bug_id A bug identifier. If not specified or 0, the
+ *                          dropdown list will include all available tags;
+ *                          otherwise tags attached to the given bug will
+ *                          be excluded.
  * @param string  $p_string Default contents of the input box.
+ *
  * @return void
  */
 function print_tag_input( $p_bug_id = 0, $p_string = '' ) {
@@ -428,7 +433,7 @@ function print_tag_option_list( $p_bug_id = 0 ) {
 }
 
 /**
- * Get current headlines and id  prefix with v_
+ * Get current headlines and id prefix with v_
  * @return void
  */
 function print_news_item_option_list() {
@@ -754,25 +759,32 @@ function print_category_option_list( $p_category_id = 0, $p_project_id = null ) 
 		echo '<option value="0"';
 		check_selected( $p_category_id, 0 );
 		echo '>';
-		echo category_full_name( 0, false ), '</option>';
+		echo category_full_name( 0, false );
+		echo '</option>', PHP_EOL;
 	} else {
 		if( 0 == $p_category_id ) {
 			if( count( $t_cat_arr ) == 1 ) {
 				$p_category_id = (int) $t_cat_arr[0]['id'];
 			} else {
-				echo '<option value="0"';
-				echo check_selected( $p_category_id, 0 );
+				echo '<option value="0" disabled hidden';
+				check_selected( $p_category_id, 0 );
 				echo '>';
-				echo string_attribute( lang_get( 'select_option' ) ) . '</option>';
+				echo string_attribute( lang_get( 'select_option' ) );
+				echo '</option>', PHP_EOL;
 			}
 		}
 	}
 
 	foreach( $t_cat_arr as $t_category_row ) {
 		$t_category_id = (int)$t_category_row['id'];
+		$t_category_name = category_full_name(
+			$t_category_id,
+			$t_category_row['project_id'] != $t_project_id
+		);
 		echo '<option value="' . $t_category_id . '"';
 		check_selected( $p_category_id, $t_category_id );
-		echo '>' . string_attribute( category_full_name( $t_category_id, $t_category_row['project_id'] != $t_project_id ) ) . '</option>';
+		echo '>';
+		echo string_attribute( $t_category_name ), '</option>', PHP_EOL;
 	}
 }
 
@@ -1166,7 +1178,6 @@ function print_project_user_list_option_list2( $p_user_id ) {
 					u.user_id IS NULL
 				ORDER BY p.name';
 	$t_result = db_query( $t_query, array( (int)$p_user_id, true ) );
-	$t_category_count = db_num_rows( $t_result );
 	while( $t_row = db_fetch_array( $t_result ) ) {
 		$t_project_name = string_attribute( $t_row['name'] );
 		$t_user_id = $t_row['id'];
@@ -1215,7 +1226,6 @@ function print_custom_field_projects_list( $p_field_id ) {
 
 	foreach( $t_project_ids as $t_project_id ) {
 		$t_project_name = project_get_field( $t_project_id, 'name' );
-		$t_sequence = custom_field_get_sequence( $p_field_id, $t_project_id );
 		echo '<strong>', string_display_line( $t_project_name ), '</strong>: ';
 		print_extra_small_button( 'manage_proj_custom_field_remove.php?field_id=' . $c_field_id . '&project_id=' . $t_project_id . '&return=custom_field' . $t_security_token, lang_get( 'remove_link' ) );
 		echo '<br />- ';
@@ -1877,11 +1887,17 @@ function print_bug_attachments_list( $p_bug_id, $p_security_token ) {
  * @return void
  */
 function print_bug_attachment( array $p_attachment, $p_security_token ) {
-	if( $p_attachment['preview'] ) {
+	echo '<div class="well well-xs">';
+
+	if( $p_attachment['preview'] || $p_attachment['type'] === 'audio' || $p_attachment['type'] === 'video' ) {
 		$t_collapse_id = 'attachment_preview_' . $p_attachment['id'];
 		global $g_collapse_cache_token;
-		$g_collapse_cache_token[$t_collapse_id] = $p_attachment['type'] == 'image';
-		collapse_open( $t_collapse_id );
+		$g_collapse_cache_token[$t_collapse_id] = 
+			$p_attachment['type'] == 'image' ||
+			$p_attachment['type'] == 'audio' ||
+			$p_attachment['type'] == 'video';
+
+		collapse_open( $t_collapse_id, '');
 	}
 
 	print_bug_attachment_header( $p_attachment, $p_security_token );
@@ -1889,19 +1905,49 @@ function print_bug_attachment( array $p_attachment, $p_security_token ) {
 	if( $p_attachment['preview'] ) {
 		echo lang_get( 'word_separator' );
 		collapse_icon( $t_collapse_id );
-		if( $p_attachment['type'] == 'text' ) {
-			print_bug_attachment_preview_text( $p_attachment );
-		} else if( $p_attachment['type'] === 'image' ) {
-			print_bug_attachment_preview_image( $p_attachment );
+
+		switch( $p_attachment['type'] ) {
+			case 'text':
+				print_bug_attachment_preview_text( $p_attachment );
+				break;
+			case 'image':
+				print_bug_attachment_preview_image( $p_attachment );
+				break;
+			case 'audio':
+			case 'video':
+				print_bug_attachment_preview_audio_video(
+					$p_attachment, $p_attachment['file_type'], $p_attachment['preview'] );
+				break;
 		}
-		collapse_closed( $t_collapse_id );
+
+		collapse_closed( $t_collapse_id, '' );
+
 		print_bug_attachment_header( $p_attachment, $p_security_token );
 		echo lang_get( 'word_separator' );
 		collapse_icon( $t_collapse_id );
 		collapse_end( $t_collapse_id );
 	} else {
-		echo '<br />';
+		# Audio / Video support showing control without preloading.
+		if( $p_attachment['type'] === 'audio' || $p_attachment['type'] === 'video' ) {
+			echo lang_get( 'word_separator' );
+			collapse_icon( $t_collapse_id );
+	
+			print_bug_attachment_preview_audio_video(
+				$p_attachment,
+				$p_attachment['file_type'],
+				$p_attachment['preview'] );
+	
+			collapse_closed( $t_collapse_id );
+			print_bug_attachment_header( $p_attachment, $p_security_token );
+			echo lang_get( 'word_separator' );
+			collapse_icon( $t_collapse_id );
+			collapse_end( $t_collapse_id );	
+		} else {
+			echo '<br />';
+		}
 	}
+
+	echo '</div>';
 }
 
 /**
@@ -1912,12 +1958,12 @@ function print_bug_attachment( array $p_attachment, $p_security_token ) {
  * a valid security token, previously generated by form_security_token().
  * Use this to avoid performance issues when loading pages having many calls to
  * this function, such as print_bug_attachments_list().
- * @param array $p_attachment An attachment array from within the array returned by the file_get_visible_attachments() function.
+ * @param array $p_attachment An attachment array from within the array returned by
+ *              the file_get_visible_attachments() function.
  * @param string $p_security_token The security token to use for deleting attachments.
  * @return void
  */
 function print_bug_attachment_header( array $p_attachment, $p_security_token ) {
-	echo "\n";
 	if( $p_attachment['exists'] ) {
 		if( $p_attachment['can_download'] ) {
 			echo '<a href="' . string_attribute( $p_attachment['download_url'] ) . '">';
@@ -1943,16 +1989,16 @@ function print_bug_attachment_header( array $p_attachment, $p_security_token ) {
 	}
 
 	if( $p_attachment['can_delete'] ) {
-		echo '<a class="noprint" href="bug_file_delete.php?file_id=' . $p_attachment['id'] .
+		echo '<a class="noprint red zoom-130 pull-right" href="bug_file_delete.php?file_id=' . $p_attachment['id'] .
 			form_security_param( 'bug_file_delete', $p_security_token ) . '">
-			<i class="1 ace-icon fa fa-trash-o"></i></a>';
+			<i class="1 ace-icon fa fa-trash-o bigger-115"></i></a>';
 	}
-
 }
 
 /**
  * Prints the preview of a text file attachment.
- * @param array $p_attachment An attachment array from within the array returned by the file_get_visible_attachments() function.
+ * @param array $p_attachment An attachment array from within the array returned by
+ *              the file_get_visible_attachments() function.
  * @return void
  */
 function print_bug_attachment_preview_text( array $p_attachment ) {
@@ -1982,7 +2028,8 @@ function print_bug_attachment_preview_text( array $p_attachment ) {
 
 /**
  * Prints the preview of an image file attachment.
- * @param array $p_attachment An attachment array from within the array returned by the file_get_visible_attachments() function.
+ * @param array $p_attachment An attachment array from within the array returned by
+ *              the file_get_visible_attachments() function.
  * @return void
  */
 function print_bug_attachment_preview_image( array $p_attachment ) {
@@ -2004,6 +2051,29 @@ function print_bug_attachment_preview_image( array $p_attachment ) {
 	echo '<a href="' . string_attribute( $p_attachment['download_url'] ) . '">';
 	echo '<img src="' . string_attribute( $t_image_url ) . '" alt="' . string_attribute( $t_title ) . '" style="' . string_attribute( $t_preview_style ) . '" />';
 	echo '</a></div>';
+}
+
+/**
+ * Prints the preview of an audio/video file attachment.
+ * @param array $p_attachment An attachment array from within the array returned by
+ *              the file_get_visible_attachments() function.
+ * @param string $p_file_type mime type
+ * @param boolean $p_preload true to preload audio/video, false otherwise.
+ * @return void
+ */
+function print_bug_attachment_preview_audio_video( array $p_attachment, $p_file_type, $p_preload ) {
+	$t_file_url = $p_attachment['download_url'] . '&show_inline=1' . form_security_param( 'file_show_inline' );
+	$t_preload = $p_preload ? '' : ' preload="none"';
+
+	$t_type = $p_attachment['type'];
+
+	echo "\n<div class=\"bug-attachment-preview-" . $t_type . "\">";
+	echo '<a href="' . string_attribute( $p_attachment['download_url'] ) . '">';
+	echo '<' . $t_type . ' controls="controls"' . $t_preload . '>';
+	echo '<source src="' . string_attribute( $t_file_url ) . '" type="' . string_attribute( $p_file_type ) . '">';
+  	echo lang_get( 'browser_does_not_support_' . $t_type );
+	echo '</' . $t_type . '>';
+	echo "</a></div>";
 }
 
 /**
@@ -2145,3 +2215,37 @@ function print_option_list_from_array( array $p_array, $p_filter_value ) {
 		echo '>' . string_attribute( $t_value ) . '</option>' . "\n";
 	}
 }
+
+/**
+ * Print HTML relationship listbox
+ *
+ * @param integer $p_default_rel_type Relationship Type (default -1).
+ * @param string  $p_select_name      List box name (default "rel_type").
+ * @param boolean $p_include_any      Include an ANY option in list box (default false).
+ * @param boolean $p_include_none     Include a NONE option in list box (default false).
+ * @param string  $p_input_css        CSS classes to use with input fields
+ * @return void
+ */
+function print_relationship_list_box( $p_default_rel_type = BUG_REL_ANY, $p_select_name = 'rel_type', $p_include_any = false, $p_include_none = false, $p_input_css = "input-sm" ) {
+	global $g_relationships;
+	?>
+<select class="<?php echo $p_input_css ?>" name="<?php echo $p_select_name?>">
+<?php if( $p_include_any ) {?>
+<option value="<?php echo BUG_REL_ANY ?>" <?php echo( $p_default_rel_type == BUG_REL_ANY ? ' selected="selected"' : '' )?>>[<?php echo lang_get( 'any' )?>]</option>
+<?php
+	}
+
+	if( $p_include_none ) {?>
+<option value="<?php echo BUG_REL_NONE ?>" <?php echo( $p_default_rel_type == BUG_REL_NONE ? ' selected="selected"' : '' )?>>[<?php echo lang_get( 'none' )?>]</option>
+<?php
+	}
+
+	foreach( $g_relationships as $t_type => $t_relationship ) {
+		?>
+<option value="<?php echo $t_type?>"<?php echo( $p_default_rel_type == $t_type ? ' selected="selected"' : '' )?>><?php echo lang_get( $t_relationship['#description'] )?></option>
+<?php
+	}?>
+</select>
+<?php
+}
+
