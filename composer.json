@@ -18,7 +18,7 @@
         "fidata/search-related-issue": "^1.0",
         "fidata/source": "^2.3",
         "fidata/source-github": "^2.3",
-        "fidata/easy-enter": "^2.3",
+        "fidata/easy-enter": "^1.2",
         "fidata/csv-import": "^2.0",
         "fidata/releases": "^1.2",
         "fidata/workload": "^3.0",
