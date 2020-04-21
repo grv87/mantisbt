@@ -1,0 +1,7 @@
+# The Administrative directory should not be publicly accesible,
+# since the tools herein allow for access to the database without
+# authentications.
+AuthType Basic
+AuthName "Restricted Admin mantis"
+AuthUserFile /etc/mantis/.htpasswd
+Require valid-user
