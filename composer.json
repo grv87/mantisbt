@@ -14,7 +14,7 @@
         "dapphp/securimage": "dev-mantis",
         "composer/installers": "^1.8",
         "fidata/api-extend": "^1.2",
-        "fidata/gauge-support": "2.5.0-dev",
+        "fidata/gauge-support": "^2.5",
         "fidata/search-related-issue": "^1.0",
         "fidata/source": "^2.3",
         "fidata/source-github": "^2.3",

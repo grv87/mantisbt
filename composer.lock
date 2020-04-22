@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "a22693de92350a728651907faede49f6",
+    "content-hash": "cf63b8d1e7d7aaa4caf320df6eb8b14b",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -385,13 +385,14 @@
         },
         {
             "name": "fidata/gantt-chart",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/GanttChart-2.0.4.zip"
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/GanttChart-2.0.5.zip"
             },
             "archive": {
                 "exclude": [
+                    "/.project",
                     ".gitignore",
                     "/patch",
                     "/res",
@@ -418,13 +419,14 @@
         },
         {
             "name": "fidata/gauge-support",
-            "version": "2.5.0-dev",
+            "version": "2.5.2",
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/GaugeSupport.zip"
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/GaugeSupport-2.5.2.zip"
             },
             "archive": {
                 "exclude": [
+                    "/.project",
                     ".gitignore",
                     ".gitattributes",
                     "/doc",
@@ -435,7 +437,7 @@
             },
             "type": "mantisbt-plugin",
             "license": [
-                "GPL-3.0+"
+                "GPL-3.0-or-later"
             ],
             "authors": [
                 {
@@ -597,13 +599,14 @@
         },
         {
             "name": "fidata/workload",
-            "version": "3.1.0",
+            "version": "3.1.1",
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/Workload-3.1.0.zip"
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/Workload-3.1.1.zip"
             },
             "archive": {
                 "exclude": [
+                    "/.project",
                     "/docs",
                     "/wiki",
                     ".gitignore",
@@ -2634,8 +2637,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "dapphp/securimage": 20,
-        "fidata/gauge-support": 20
+        "dapphp/securimage": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
