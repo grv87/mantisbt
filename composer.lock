@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cf63b8d1e7d7aaa4caf320df6eb8b14b",
+    "content-hash": "aeaf22e98aa4f51f30c92abb618f5e51",
     "packages": [
         {
             "name": "adodb/adodb-php",
@@ -419,10 +419,10 @@
         },
         {
             "name": "fidata/gauge-support",
-            "version": "2.5.2",
+            "version": "2.5.3-beta",
             "dist": {
                 "type": "zip",
-                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/GaugeSupport-2.5.2.zip"
+                "url": "https://fidata.jfrog.io/fidata/api/composer/composer-local/direct-dists/fidata/GaugeSupport-2.5.3-beta.zip"
             },
             "archive": {
                 "exclude": [
@@ -2637,7 +2637,8 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "dapphp/securimage": 20
+        "dapphp/securimage": 20,
+        "fidata/gauge-support": 10
     },
     "prefer-stable": false,
     "prefer-lowest": false,
