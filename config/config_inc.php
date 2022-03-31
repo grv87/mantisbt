@@ -73,6 +73,9 @@ $g_window_title  = 'FIDATA MantisBT';
 $g_css_include_file = 'custom.css';
 
 # --- Real names ---
+/**
+ * show users with their real name or not
+ */
 $g_show_realname = ON;
 $g_show_user_realname_threshold = REPORTER;  # Set to access level (e.g. VIEWER, REPORTER, DEVELOPER, MANAGER, etc)
 
@@ -210,11 +213,6 @@ $g_resolution_multipliers = array(
 	BY_DESIGN           => 1,
   INVALID             => 5
 );
-
-/**
- * show users with their real name or not
- */
-$g_show_realname = ON;
 
 /**
  * Enable relationship graphs support.
